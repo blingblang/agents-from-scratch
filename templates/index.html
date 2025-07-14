@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Monitor Agent Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-chart-line"></i> Sales Monitor Agent</h1>
+            <p>Intelligent inventory monitoring and sales analytics dashboard</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="control-panel">
+                <h2><i class="fas fa-cogs"></i> Monitoring Controls</h2>
+                
+                <div class="monitor-section">
+                    <h3><i class="fas fa-search"></i> Manual Inventory Check</h3>
+                    <p>Perform a general inventory status check</p>
+                    <button id="manual-check-btn" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Run Manual Check
+                    </button>
+                </div>
+
+                <div class="monitor-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Low Stock Alert</h3>
+                    <p>Simulate a low stock situation</p>
+                    <div class="input-group">
+                        <label for="item-name">Item Name:</label>
+                        <input type="text" id="item-name" value="USB Cable" placeholder="Enter item name">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="current-stock">Current Stock:</label>
+                            <input type="number" id="current-stock" value="5" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="reorder-level">Reorder Level:</label>
+                            <input type="number" id="reorder-level" value="25" min="0">
+                        </div>
+                    </div>
+                    <button id="low-stock-btn" class="btn btn-warning">
+                        <i class="fas fa-exclamation-triangle"></i> Trigger Low Stock Alert
+                    </button>
+                </div>
+
+                <div class="monitor-section">
+                    <h3><i class="fas fa-chart-bar"></i> Sales Analytics</h3>
+                    <p>Generate sales performance report</p>
+                    <div class="input-group">
+                        <label for="period">Period:</label>
+                        <select id="period">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="total-sales">Total Sales ($):</label>
+                            <input type="number" id="total-sales" value="2450.00" step="0.01">
+                        </div>
+                        <div class="input-group">
+                            <label for="total-orders">Total Orders:</label>
+                            <input type="number" id="total-orders" value="15" min="0">
+                        </div>
+                    </div>
+                    <button id="sales-analytics-btn" class="btn btn-success">
+                        <i class="fas fa-chart-bar"></i> Generate Analytics
+                    </button>
+                </div>
+            </div>
+
+            <div class="results-panel">
+                <h2><i class="fas fa-monitor"></i> Agent Results</h2>
+                
+                <div id="loading" class="loading hidden">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Sales Monitor Agent is analyzing...</p>
+                </div>
+
+                <div id="results-container" class="results-container hidden">
+                    <div class="result-header">
+                        <div class="classification-badge" id="classification-badge">
+                            <i class="fas fa-info-circle"></i>
+                            <span id="classification-text">Unknown</span>
+                        </div>
+                        <div class="priority-badge" id="priority-badge">
+                            <span id="priority-text">Unknown Priority</span>
+                        </div>
+                    </div>
+
+                    <div class="messages-section">
+                        <h3><i class="fas fa-comments"></i> Agent Response</h3>
+                        <div id="messages-container" class="messages-container">
+                            <!-- Messages will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="error-container" class="error-container hidden">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <h3>Error</h3>
+                    <p id="error-message"></p>
+                </div>
+
+                <div id="welcome-message" class="welcome-message">
+                    <i class="fas fa-robot"></i>
+                    <h3>Welcome to Sales Monitor Agent</h3>
+                    <p>Select a monitoring action from the controls on the left to get started. The agent will analyze your inventory and provide intelligent insights.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-search"></i>
+                            <span>Real-time inventory monitoring</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Sales analytics and trends</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bell"></i>
+                            <span>Intelligent alerts and recommendations</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-brain"></i>
+                            <span>AI-powered insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
