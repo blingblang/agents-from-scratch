@@ -74,13 +74,7 @@ Follow the setup guide in `src/email_assistant/tools/zoho/README.md`:
 2. Create a "Self Client" application
 3. Add credentials to your `.env` file:
 
-```bash
-# Add to your .env file
-ZOHO_CLIENT_ID=your_client_id_here
-ZOHO_CLIENT_SECRET=your_client_secret_here
-ZOHO_ACCESS_TOKEN=your_access_token_here
-ZOHO_ORGANIZATION_ID=your_organization_id_here
-```
+
 
 ### 3. Run OAuth Setup
 
